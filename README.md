@@ -1,4 +1,4 @@
-# appmetrics-prometheus
+prometheus# appmetrics-prometheus
 
 [![Build Status](https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master)](https://travis-ci.org/RuntimeTools/appmetrics-dash)
 [![codebeat badge](https://codebeat.co/badges/52b7334d-70b0-4659-9acb-b080d6413906)](https://codebeat.co/projects/github-com-runtimetools-appmetrics-dash-master)
@@ -8,7 +8,7 @@
 
 appmetrics-prometheus provides a /metrics endpoint which is necessary for Prometheus monitoring.
 
-The data available on the dashboard is as follows:
+The data available on the /metrics endpoint is as follows:
 * CPU
 * Memory
 
@@ -22,7 +22,7 @@ npm install appmetrics-prometheus
 
 ## Performance overhead
 
-Our testing has shown that the performance overhead in terms of processing is minimal, adding less than 0.5 % to the CPU usage of your application. The additional memory required is around 30 MB to gather information about your system and application which is then visualized in the dashboard.
+Our testing has shown that the performance overhead in terms of processing is minimal, adding less than 0.5 % to the CPU usage of your application.
 
 We gathered this information by monitoring the sample application [Acme Air][3]. We used MongoDB as our datastore and used JMeter to drive load though the program.  We have performed this testing with Node.js version 6.10.3
 
@@ -39,7 +39,7 @@ Simple example using the express framework
 // for more info, see: http://expressjs.com
 var express = require('express');
 
-var dash = require('appmetrics-prometheus').monitor();
+var prometheus = require('appmetrics-prometheus').monitor();
 
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
@@ -61,15 +61,13 @@ var server = app.listen(appEnv.port, '0.0.0.0', function() {
 });
 ```
 
-## dash.monitor(options)
+## prometheus.monitor(options)
 
-* options.url {String} Path to serve dashboard from. Optional, defaults to
-  `'/appmetrics-prometheus'`.
 * options.console {Object} Some messages are printed to the console using
   `console.log()` and `console.error()`. Optional, defaults to the global
   `console` object.
 * options.server {Object} An instance of a node `http` server to serve the
-  dashboard from. Optional, default is to create a server (see `port` and
+  endpoint from. Optional, default is to create a server (see `port` and
   `host`).
 * options.port {String|Number} Port to listen on if creating a server. Optional,
   unused if `server` option is used.
@@ -79,19 +77,17 @@ var server = app.listen(appEnv.port, '0.0.0.0', function() {
   injected if the application wants to use appmetrics, since it is a singleton
   module and only one can be present in an application. Optional, defaults to
   the appmetrics dependency of this module.
-* options.title {String} Title for the dashboard.
-* options.docs {String} URL link to accompanying documentation.
 
-## dash.attach(options)
+## prometheus.attach(options)
 
-* options {Object} Options are the same as for `dash.monitor()`.
+* options {Object} Options are the same as for `prometheus.monitor()`.
 
-Auto-attach to all `http` servers created after this call, calling `dash.monitor(options)` for every server.
+Auto-attach to all `http` servers created after this call, calling `prometheus.monitor(options)` for every server.
 
 Simple example using attach
 ```js
-var dash = require('appmetrics-prometheus');
-dash.attach();
+var prometheus = require('appmetrics-prometheus');
+prometheus.attach();
 
 var http = require('http');
 
