@@ -1,4 +1,4 @@
-# appmetrics-dash
+# appmetrics-prometheus
 
 [![Build Status](https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master)](https://travis-ci.org/RuntimeTools/appmetrics-dash)
 [![codebeat badge](https://codebeat.co/badges/52b7334d-70b0-4659-9acb-b080d6413906)](https://codebeat.co/projects/github-com-runtimetools-appmetrics-dash-master)
@@ -23,7 +23,7 @@ The data available on the dashboard is as follows:
 
 As well as displaying data, it also provides the ability to generate both [Node Report][2] and Heap Snapshots directly from the dashboard.  The Node Report will display in a new tab in the browser whilst the Heap Snapshot will be written to disk for loading into the Chrome DevTools for analysis.  These can both be triggered from the options menu in the top left of the screen
 
-The dashboard uses [Node Application Metrics][1] to monitor the application. 
+The dashboard uses [Node Application Metrics][1] to monitor the application.
 
 ## Installation
 
@@ -33,7 +33,7 @@ npm install appmetrics-dash
 
 ## Performance overhead
 
-Our testing has shown that the performance overhead in terms of processing is minimal, adding less than 0.5 % to the CPU usage of your application. The additional memory required is around 30 MB to gather information about your system and application which is then visualized in the dashboard. 
+Our testing has shown that the performance overhead in terms of processing is minimal, adding less than 0.5 % to the CPU usage of your application. The additional memory required is around 30 MB to gather information about your system and application which is then visualized in the dashboard.
 
 We gathered this information by monitoring the sample application [Acme Air][3]. We used MongoDB as our datastore and used JMeter to drive load though the program.  We have performed this testing with Node.js version 6.10.3
 
@@ -137,4 +137,3 @@ The Node Application Metrics Dashboard is licensed using an Apache v2.0 License.
 [1]:https://developer.ibm.com/open/node-application-metrics/
 [2]:https://www.npmjs.com/package/node-report/
 [3]:https://github.com/acmeair/acmeair-nodejs/
-
