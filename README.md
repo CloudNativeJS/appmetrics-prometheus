@@ -16,7 +16,11 @@ appmetrics-prometheus uses [Node Application Metrics][1] to monitor the applicat
 
 ## Configuring Prometheus
 
+[Prometheus Documentation](https://prometheus.io/docs/introduction/overview/)
+
 ### Local Installation
+
+Download Prometheus from: [Prometheus Downloads](https://prometheus.io/download/)
 
 Follow the instructions on the [Prometheus getting started](https://prometheus.io/docs/introduction/getting_started/) page.
 
