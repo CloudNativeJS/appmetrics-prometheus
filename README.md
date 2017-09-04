@@ -1,18 +1,34 @@
 # appmetrics-prometheus
 
-[![Build Status](https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master)](https://travis-ci.org/RuntimeTools/appmetrics-dash)
+<!-- [![Build Status](https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master)](https://travis-ci.org/RuntimeTools/appmetrics-dash)
 [![codebeat badge](https://codebeat.co/badges/52b7334d-70b0-4659-9acb-b080d6413906)](https://codebeat.co/projects/github-com-runtimetools-appmetrics-dash-master)
 [![codecov.io](https://codecov.io/github/RuntimeTools/appmetrics-dash/coverage.svg?branch=master)](https://codecov.io/github/RuntimeTools/appmetrics-dash?branch=master)
 ![Apache 2](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)
-[![Homepage](https://img.shields.io/badge/homepage-Node%20Application%20Metrics-blue.svg)](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/)
+[![Homepage](https://img.shields.io/badge/homepage-Node%20Application%20Metrics-blue.svg)](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/) -->
 
-appmetrics-prometheus provides a /metrics endpoint which is necessary for Prometheus monitoring.
+appmetrics-prometheus provides a /metrics endpoint which is necessary for [Prometheus monitoring](https://prometheus.io/).
 
 The data available on the /metrics endpoint is as follows:
 * CPU
 * Memory
 
 appmetrics-prometheus uses [Node Application Metrics][1] to monitor the application.
+
+## Configuring Prometheus
+
+### Local Installation
+
+
+
+### Kubernetes
+
+To use Prometheus with Kubernetes you can install it using [Helm](https://github.com/kubernetes/helm).
+
+[Prometheus Chart](https://github.com/kubernetes/charts/tree/master/stable/prometheus)
+
+`$ helm install stable/prometheus`
+
+
 
 ## Installation
 
@@ -28,9 +44,8 @@ We gathered this information by monitoring the sample application [Acme Air][3].
 
 ## prometheus = require('appmetrics-prometheus').monitor()
 
-This will launch the prometheus endpoint and start monitoring your application. When
-no options are specified, an http server will be created and listen on port 3001.
-The prometheus metrics page is located at /metrics
+This will launch the prometheus endpoint and start monitoring your application.
+The prometheus metrics page is located at /metrics.
 
 Simple example using the express framework
 
@@ -39,7 +54,7 @@ Simple example using the express framework
 // for more info, see: http://expressjs.com
 var express = require('express');
 
-var prometheus = require('appmetrics-prometheus').monitor();
+var prometheus = require('appmetrics-prometheus').attach();
 
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
@@ -61,33 +76,18 @@ var server = app.listen(appEnv.port, '0.0.0.0', function() {
 });
 ```
 
-## prometheus.monitor(options)
+## prometheus.attach(options)
 
-* options.console {Object} Some messages are printed to the console using
-  `console.log()` and `console.error()`. Optional, defaults to the global
-  `console` object.
-* options.server {Object} An instance of a node `http` server to serve the
-  endpoint from. Optional, default is to create a server (see `port` and
-  `host`).
-* options.port {String|Number} Port to listen on if creating a server. Optional,
-  unused if `server` option is used.
-* options.host {String} Host to listen on if creating a server. Optional,
-  unused if `server` option is used.
 * options.appmetrics {Object} An instance of `require('appmetrics')` can be
   injected if the application wants to use appmetrics, since it is a singleton
   module and only one can be present in an application. Optional, defaults to
   the appmetrics dependency of this module.
 
-## prometheus.attach(options)
-
-* options {Object} Options are the same as for `prometheus.monitor()`.
-
 Auto-attach to all `http` servers created after this call, calling `prometheus.monitor(options)` for every server.
 
 Simple example using attach
 ```js
-var prometheus = require('appmetrics-prometheus');
-prometheus.attach();
+require('appmetrics-prometheus').attach();
 
 var http = require('http');
 
