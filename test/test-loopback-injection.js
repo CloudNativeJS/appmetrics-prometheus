@@ -37,13 +37,13 @@ tap.test('loopack api available', function(t) {
   });
 });
 
-tap.test('dashboard available', function(t) {
+tap.test('metrics available', function(t) {
   const options = {
-    url: base + '/appmetrics-dash',
+    url: base + '/metrics',
   };
   request(options, function(err, resp, body) {
     t.ifError(err);
-    t.similar(body, /DOCTYPE html/);
+    t.similar(body, /appmetrics_cpu_process/);
     t.end();
   });
 });

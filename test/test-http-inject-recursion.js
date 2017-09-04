@@ -1,7 +1,7 @@
 'use strict';
 
 // Test framework.
-const debug = require('debug')('appmetrics-dash:test');
+const debug = require('debug')('appmetrics-prometheus:test');
 const request = require('request');
 const tap = require('tap');
 const util = require('util');
@@ -40,14 +40,14 @@ tap.test('start', function(t) {
   });
 });
 
-tap.test('dashboard available', function(t) {
+tap.test('metrics available', function(t) {
   const options = {
-    url: base + '/appmetrics-dash',
+    url: base + '/metrics',
   };
   debug('request %j', options);
   request(options, function(err, resp, body) {
     t.ifError(err);
-    t.similar(body, /DOCTYPE html/);
+    t.similar(body, /appmetrics_cpu_process/);
     t.end();
   });
 });
