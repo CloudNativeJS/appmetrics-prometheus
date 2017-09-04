@@ -6,29 +6,18 @@
 ![Apache 2](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)
 [![Homepage](https://img.shields.io/badge/homepage-Node%20Application%20Metrics-blue.svg)](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/)
 
-appmetrics-dash provides a very easy to use, web based, dashboard to show the performance metrics of your running Node.js application.  
+appmetrics-prometheus provides a /metrics endpoint which is necessary for Prometheus monitoring.
 
 The data available on the dashboard is as follows:
-* CPU Profiling (via a separate tab)
-* HTTP Incoming Requests
-* HTTP Throughput
-* Average Reponse Times (top 5)
 * CPU
 * Memory
-* Heap
-* Event loop Latency
-* Environment
-* Other Requests
-* HTTP Outbound Requests
 
-As well as displaying data, it also provides the ability to generate both [Node Report][2] and Heap Snapshots directly from the dashboard.  The Node Report will display in a new tab in the browser whilst the Heap Snapshot will be written to disk for loading into the Chrome DevTools for analysis.  These can both be triggered from the options menu in the top left of the screen
-
-The dashboard uses [Node Application Metrics][1] to monitor the application.
+appmetrics-prometheus uses [Node Application Metrics][1] to monitor the application.
 
 ## Installation
 
 ```console
-npm install appmetrics-dash
+npm install appmetrics-prometheus
 ```
 
 ## Performance overhead
@@ -37,11 +26,11 @@ Our testing has shown that the performance overhead in terms of processing is mi
 
 We gathered this information by monitoring the sample application [Acme Air][3]. We used MongoDB as our datastore and used JMeter to drive load though the program.  We have performed this testing with Node.js version 6.10.3
 
-## dash = require('appmetrics-dash').monitor()
+## prometheus = require('appmetrics-prometheus').monitor()
 
-This will launch the dashboard and start monitoring your application. When
+This will launch the prometheus endpoint and start monitoring your application. When
 no options are specified, an http server will be created and listen on port 3001.
-The dashboard will be available at /appmetrics-dash
+The prometheus metrics page is located at /metrics
 
 Simple example using the express framework
 
@@ -50,7 +39,7 @@ Simple example using the express framework
 // for more info, see: http://expressjs.com
 var express = require('express');
 
-var dash = require('appmetrics-dash').monitor();
+var dash = require('appmetrics-prometheus').monitor();
 
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
@@ -75,7 +64,7 @@ var server = app.listen(appEnv.port, '0.0.0.0', function() {
 ## dash.monitor(options)
 
 * options.url {String} Path to serve dashboard from. Optional, defaults to
-  `'/appmetrics-dash'`.
+  `'/appmetrics-prometheus'`.
 * options.console {Object} Some messages are printed to the console using
   `console.log()` and `console.error()`. Optional, defaults to the global
   `console` object.
@@ -90,10 +79,6 @@ var server = app.listen(appEnv.port, '0.0.0.0', function() {
   injected if the application wants to use appmetrics, since it is a singleton
   module and only one can be present in an application. Optional, defaults to
   the appmetrics dependency of this module.
-* options.node-report {Object} An instance of `require('node-report')` can be
-  injected if the application wants to use node-report, since it is a singleton
-  module and only one can be present in an application. Optional, defaults to
-  the node-report dependency of this module.
 * options.title {String} Title for the dashboard.
 * options.docs {String} URL link to accompanying documentation.
 
@@ -105,7 +90,7 @@ Auto-attach to all `http` servers created after this call, calling `dash.monitor
 
 Simple example using attach
 ```js
-var dash = require('appmetrics-dash');
+var dash = require('appmetrics-prometheus');
 dash.attach();
 
 var http = require('http');
@@ -131,7 +116,7 @@ server.listen(port, (err) => {
 We welcome contributions. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details about the contributor licence agreement and other information. If you want to do anything more involved than a bug fix or a minor enhancement then we would recommend discussing it in an issue first before doing the work to make sure that it's likely to be accepted. We're also keen to improve test coverage and may not accept new code unless there are accompanying tests.
 
 ### License
-The Node Application Metrics Dashboard is licensed using an Apache v2.0 License.
+The Node Application Metrics Prometheus is licensed using an Apache v2.0 License.
 
 
 [1]:https://developer.ibm.com/open/node-application-metrics/
