@@ -56,6 +56,7 @@ Start Prometheus by using the command
 ```
 ./prometheus -config.file=prometheus.yml
 ```
+Prometheus can be found at `localhost:9090`
 
 ### Kubernetes
 
@@ -64,8 +65,6 @@ To use Prometheus with Kubernetes you can install it using [Helm](https://github
 [Prometheus Chart](https://github.com/kubernetes/charts/tree/master/stable/prometheus)
 
 `$ helm install stable/prometheus`
-
-
 
 ## Installation
 
