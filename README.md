@@ -60,12 +60,12 @@ scrape_configs:
 
 Set the targets field to your IP address and port number. You can monitor many applications by adding a comma between each IP address and port number.
 
-Start Prometheus by using the command
+Start Prometheus by using the command:
 
 ```
 ./prometheus -config.file=prometheus.yml
 ```
-Prometheus can be found at `localhost:9090`
+Prometheus can be found at `localhost:9090`.
 
 <!-- ### Kubernetes
 
@@ -81,18 +81,19 @@ To use Prometheus with Kubernetes you can install it using [Helm](https://github
 npm install appmetrics-prometheus
 ```
 
-## Performance overhead
+## Usage
 
-Our testing has shown that the performance overhead in terms of processing is minimal, adding less than 0.5 % to the CPU usage of your application.
+Place the following code at the top of your applications server file.
+```
+require('appmetrics-prometheus').attach()
+```
 
-We gathered this information by monitoring the sample application [Acme Air][3]. We used MongoDB as our datastore and used JMeter to drive load though the program.  We have performed this testing with Node.js version 6.10.3
-
-## prometheus = require('appmetrics-prometheus').monitor()
+## prometheus = require('appmetrics-prometheus').attach()
 
 This will launch the prometheus endpoint and start monitoring your application.
 The prometheus metrics page is located at /metrics.
 
-Simple example using the express framework
+Simple example using the express framework.
 
 ```js
 // This application uses express as its web server
@@ -130,7 +131,7 @@ var server = app.listen(appEnv.port, '0.0.0.0', function() {
 
 Auto-attach to all `http` servers created after this call, calling `prometheus.monitor(options)` for every server.
 
-Simple example using attach
+Simple example using attach.
 ```js
 require('appmetrics-prometheus').attach();
 
@@ -151,6 +152,12 @@ server.listen(port, (err) => {
   console.log(`Server is listening on ${port}`)
 });
 ```
+
+## Performance overhead
+
+Our testing has shown that the performance overhead in terms of processing is minimal, adding less than 0.5 % to the CPU usage of your application.
+
+We gathered this information by monitoring the sample application [Acme Air][3]. We used MongoDB as our datastore and used JMeter to drive load though the program.  We have performed this testing with Node.js version 6.10.3.
 
 ## Contributing
 
