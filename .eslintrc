@@ -1,0 +1,24 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "extends": "strongloop",
+  "env": {
+    "node": true,
+    "browser": true,
+  },
+  "rules": {
+    "eqeqeq": "off",
+    "max-len": "off",
+    "comma-dangle": "off",
+    "no-unused-vars": ["error", { "varsIgnorePattern": "clearProfilingData",
+                                  "argsIgnorePattern": "^_" }],
+    "spaced-comment": ["error", "always", { "exceptions": ["*"] }]
+  },
+  "globals": {
+    "TreeNode": false,
+    "clearFlameGraph": false,
+    "refreshFlameGraph": false,
+    "socket": false,
+  }
+}
