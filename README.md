@@ -52,7 +52,7 @@ scrape_configs:
     scrape_interval: 5s
 
     static_configs:
-      - targets: ['YOUR URL', 'YOUR OTHER URL']
+      - targets: ['IPADDRESS:PORT', 'IPADDRESS:PORT']
 ```
 
 Set the targets field to your IP Address and Port number (You can monitor many applications by adding a comma between each IP Address and Port Number).
