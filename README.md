@@ -22,7 +22,7 @@ Tested using Node versions 6.11.2, 8.3.0 and 8.4.0.
 
 ### Local Installation
 
-Download Prometheus from: [Prometheus Downloads](https://prometheus.io/download/)
+Download Prometheus from: [Prometheus Downloads](https://prometheus.io/download/).
 
 Follow the instructions on the [Prometheus getting started](https://prometheus.io/docs/introduction/getting_started/) page.
 
@@ -36,14 +36,17 @@ cd prometheus-*
 ```
 Next you need to modify the configuration file that Prometheus uses.
 In the prometheus folder there is a file named `prometheus.yml`.
-In this file you can alter which IP Addresses and Port Numbers are scraped by Prometheus and also how often the scraping occurs.
+In this file you can alter which IP addresses and port numbers are scraped by Prometheus and also how often the scraping occurs.
 
 ```
 global:
   scrape_interval:     15s # By default, scrape targets every 15 seconds.
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
   external_labels:
     monitor: 'codelab-monitor'
 
+# A scrape configuration:
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'YOUR JOB NAME'
@@ -55,7 +58,7 @@ scrape_configs:
       - targets: ['IPADDRESS:PORT', 'IPADDRESS:PORT']
 ```
 
-Set the targets field to your IP Address and Port number (You can monitor many applications by adding a comma between each IP Address and Port Number).
+Set the targets field to your IP address and port number. You can monitor many applications by adding a comma between each IP address and port number.
 
 Start Prometheus by using the command
 
