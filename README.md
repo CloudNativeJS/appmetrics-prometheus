@@ -41,7 +41,7 @@ global:
   scrape_interval:     15s # By default, scrape targets every 15 seconds.
   external_labels:
     monitor: 'codelab-monitor'
-    
+
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'YOUR JOB NAME'
@@ -62,13 +62,13 @@ Start Prometheus by using the command
 ```
 Prometheus can be found at `localhost:9090`
 
-### Kubernetes
+<!-- ### Kubernetes
 
 To use Prometheus with Kubernetes you can install it using [Helm](https://github.com/kubernetes/helm).
 
 [Prometheus Chart](https://github.com/kubernetes/charts/tree/master/stable/prometheus)
 
-`$ helm install stable/prometheus`
+`$ helm install stable/prometheus` -->
 
 ## Installation
 
