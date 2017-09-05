@@ -9,9 +9,6 @@
     "express": "^4.14.1",
     "express-basic-auth": "^1.0.1"
   },
-  "optionalDependencies": {
-    "node-report": "^2.1.0"
-  },
   "devDependencies": {
     "codecov": "^2.1.0",
     "compression": "^1.6.2",
