@@ -53,7 +53,7 @@ scrape_configs:
       - targets: ['YOUR URL', 'YOUR OTHER URL']
 ```
 
-Set the targets field to your IP Address and Port number (You can monitor many applications by adding a comma by each IP Address and Port Number).
+Set the targets field to your IP Address and Port number (You can monitor many applications by adding a comma between each IP Address and Port Number).
 
 Start Prometheus by using the command
 
