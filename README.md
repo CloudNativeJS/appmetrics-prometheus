@@ -1,7 +1,5 @@
 # appmetrics-prometheus
 
-Tested using Node versions 6.11.2, 8.3.0 and 8.4.0.
-
 <!-- [![Build Status](https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master)](https://travis-ci.org/RuntimeTools/appmetrics-dash)
 [![codebeat badge](https://codebeat.co/badges/52b7334d-70b0-4659-9acb-b080d6413906)](https://codebeat.co/projects/github-com-runtimetools-appmetrics-dash-master)
 [![codecov.io](https://codecov.io/github/RuntimeTools/appmetrics-dash/coverage.svg?branch=master)](https://codecov.io/github/RuntimeTools/appmetrics-dash?branch=master)
@@ -15,6 +13,8 @@ The data available on the /metrics endpoint is as follows:
 * Memory
 
 appmetrics-prometheus uses [Node Application Metrics][1] to monitor the application.
+
+Tested using Node versions 6.11.2, 8.3.0 and 8.4.0.
 
 ## Configuring Prometheus
 
