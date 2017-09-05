@@ -14,7 +14,7 @@ The data available on the /metrics endpoint is as follows:
 
 appmetrics-prometheus uses [Node Application Metrics][1] to monitor the application.
 
-Tested using Node versions 6.11.2, 8.3.0 and 8.4.0.
+Tested using Node versions 4.8.4, 6.11.2, 8.3.0 and 8.4.0.
 
 ## Configuring Prometheus
 
