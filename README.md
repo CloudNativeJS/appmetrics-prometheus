@@ -32,9 +32,9 @@ Install Prometheus using:
 tar xvfz prometheus-*.tar.gz
 cd prometheus-*
 ```
-Next you need to create a configuration file for Prometheus to use.
-In this you can set the scrape interval and set the targets that Prometheus will get the metrics of.
-Create a file named prometheus.yml
+Next you need to modify the configuration file that Prometheus uses.
+In the prometheus folder there is a file named `prometheus.yml`.
+In this file you can alter which IP Addresses and Port Numbers are scraped by Prometheus and also how often the scraping occurs.
 
 ```
 global:
@@ -53,7 +53,7 @@ scrape_configs:
       - targets: ['YOUR URL', 'YOUR OTHER URL']
 ```
 
-Set the targets field to your url (or urls adding a comma between each one).
+Set the targets field to your IP Address and Port number (You can monitor many applications by adding a comma by each IP Address and Port Number).
 
 Start Prometheus by using the command
 
