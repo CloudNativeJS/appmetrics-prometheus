@@ -11,6 +11,7 @@ appmetrics-prometheus provides a /metrics endpoint which is necessary for [Prome
 The data available on the /metrics endpoint is as follows:
 * CPU
 * Memory
+* HTTP
 
 appmetrics-prometheus uses [Node Application Metrics][1] to monitor the application.
 
