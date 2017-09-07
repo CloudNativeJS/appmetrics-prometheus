@@ -43,7 +43,7 @@ tap.test('metrics available', function(t) {
   };
   request(options, function(err, resp, body) {
     t.ifError(err);
-    t.similar(body, /appmetrics_cpu_process/);
+    t.similar(body, /os_cpu_used_ratio/);
     t.end();
   });
 });
