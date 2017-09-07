@@ -164,6 +164,9 @@ We gathered this information by monitoring the sample application [Acme Air][3].
 
 We welcome contributions. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details about the contributor licence agreement and other information. If you want to do anything more involved than a bug fix or a minor enhancement then we would recommend discussing it in an issue first before doing the work to make sure that it's likely to be accepted. We're also keen to improve test coverage and may not accept new code unless there are accompanying tests.
 
+## Version
+0.0.1
+
 ### License
 The Node Application Metrics Prometheus is licensed using an Apache v2.0 License.
 
