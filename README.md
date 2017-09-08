@@ -10,8 +10,15 @@ appmetrics-prometheus provides a /metrics endpoint which is necessary for [Prome
 
 The data available on the /metrics endpoint is as follows:
 * CPU
+  * os_cpu_used_ratio (Ratio of systems CPU currently in use, type: gauge)
+  * process_cpu_used_ratio (Ratio of process CPU currently in use, type: gauge)
 * Memory
+  * os_resident_memory_bytes (OS memory size in bytes, type: gauge)
+  * process_resident_memory_bytes (Resident memory size in bytes, type: gauge)
+  * process_virtual_memory_bytes (Virtual memory size in bytes, type: gauge)
 * HTTP
+  * http_requests_total (Total number of HTTP requests made, type: counter)
+  * http_request_duration_microseconds (The HTTP request latencies in microseconds, type: summary)
 
 appmetrics-prometheus uses [Node Application Metrics][1] to monitor the application.
 
