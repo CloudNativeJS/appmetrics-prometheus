@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  ******************************************************************************/
- 'use strict';
+'use strict';
 
 const options = {
   cert: require('fs').readFileSync(__dirname + '/ec-cert.pem'),

@@ -13,7 +13,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  ******************************************************************************/
- 'use strict';
+'use strict';
 
 require('../').monitor({
   port: 'PORT' in process.env ? process.env.PORT : 3000,
