@@ -96,6 +96,11 @@ Place the following code at the top of your applications server file.
 require('appmetrics-prometheus').attach()
 ```
 
+or to use preloading:
+```sh
+$ node --require appmetrics-prometheus/attach app.js
+```
+
 ## prometheus = require('appmetrics-prometheus').attach()
 
 This will launch the prometheus endpoint and start monitoring your application.
