@@ -6,9 +6,17 @@
 ![Apache 2](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)
 [![Homepage](https://img.shields.io/badge/homepage-Node%20Application%20Metrics-blue.svg)](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/) -->
 
+<p align=center>
+<a href='http://CloudNativeJS.io/'><img src='https://img.shields.io/badge/homepage-CloudNativeJS-blue.svg'></a>
+<a href="https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master"><img src="https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master" alt="Build status"></a>
+<a href='http://github.com/CloudNativeJS/ModuleLTS'><img src='https://img.shields.io/badge/Module%20LTS-Adopted-brightgreen.svg?style=flat' alt='Module LTS Adopted' /></a> 
+<a href='http://ibm.biz/node-support'><img src='https://img.shields.io/badge/Support-IBM%20Frameworks-brightgreen.svg?style=flat' alt='IBM Support' /></a>   
+</p>
+
 appmetrics-prometheus provides a /metrics endpoint which is necessary for [Prometheus monitoring](https://prometheus.io/).
 
 The data available on the /metrics endpoint is as follows:
+
 * CPU
   * os_cpu_used_ratio (Ratio of systems CPU currently in use, type: gauge)
   * process_cpu_used_ratio (Ratio of process CPU currently in use, type: gauge)
@@ -176,11 +184,22 @@ We gathered this information by monitoring the sample application [Acme Air][3].
 
 We welcome contributions. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details about the contributor licence agreement and other information. If you want to do anything more involved than a bug fix or a minor enhancement then we would recommend discussing it in an issue first before doing the work to make sure that it's likely to be accepted. We're also keen to improve test coverage and may not accept new code unless there are accompanying tests.
 
+
+## Module Long Term Support Policy
+
+This module adopts the [Module Long Term Support (LTS)](http://github.com/CloudNativeJS/ModuleLTS) policy, with the following End Of Life (EOL) dates:
+
+| Module Version   | Release Date | Minimum EOL | EOL With     | Status  |
+|------------------|--------------|-------------|--------------|---------|
+| V2.x.x	         | Jun 2018     | Dec 2019    |              | Current |
+
 ## Version
 2.0.0
 
-### License
-The Node Application Metrics Prometheus is licensed using an Apache v2.0 License.
+
+## License
+
+  [Apache-2.0](LICENSE)
 
 
 [1]:https://developer.ibm.com/open/node-application-metrics/
