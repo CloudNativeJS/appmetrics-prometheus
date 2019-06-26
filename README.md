@@ -192,7 +192,7 @@ This module adopts the [Module Long Term Support (LTS)](http://github.com/CloudN
 | V2.x.x	         | Jun 2018     | Dec 2019    |              | Current |
 
 ## Version
-2.0.0
+3.0.0
 
 
 ## License
