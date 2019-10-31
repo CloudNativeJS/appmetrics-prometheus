@@ -9,19 +9,19 @@
     "express": "^4.14.1"
   },
   "devDependencies": {
-    "codecov": "^2.1.0",
+    "codecov": "^3.6.1",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
-    "eslint": "^3.14.1",
+    "eslint": "^4.18.2",
     "eslint-config-strongloop": "^2.1.0",
     "helmet": "^3.4.0",
     "loopback": "^3.2.1",
     "loopback-boot": "^2.23.0",
-    "loopback-component-explorer": "^4.1.0",
+    "loopback-component-explorer": "^6.4.0",
     "request": "^2.79.0",
     "serve-favicon": "^2.3.2",
     "strong-error-handler": "^1.2.1",
-    "tap": "^10.0.1"
+    "tap": "^14.9.1"
   },
   "scripts": {
     "test": "tap test/test-*.js",
