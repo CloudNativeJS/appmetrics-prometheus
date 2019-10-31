@@ -1,6 +1,6 @@
 {
   "name": "appmetrics-prometheus",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Provides a Prometheus (/metrics) endpoint for Application Metrics",
   "main": "index.js",
   "dependencies": {
