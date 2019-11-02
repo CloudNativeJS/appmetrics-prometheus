@@ -172,6 +172,30 @@ server.listen(port, (err) => {
 });
 ```
 
+## prometheus.addMetric(metricInfo, onDataEvent)
+
+this method allow you to add custom monitoring for metrics.
+the first parameter should have `name`, which represent the name of the appmetrics monitoring event. `data`, the dynamic data which will be saved on each event, and a `toString` which will be printed as part of the `metrics` route.
+the last function is the listener for the monitoring and it will `this` as the metric info, which allow to save the data differently on each metric monitoring event.
+
+```js
+  require('appmetrics-prometheus')
+    .attach()
+    .addMetric({
+      name: 'socketio',
+      data: null,
+      toString() {
+        if(this.data) {
+          return `socketio_last_event ${JSON.stringify(this.data)}`;
+        }
+
+        return '';
+      }
+    }, function(data) {
+      this.data = data;
+    });
+```
+
 ## Performance overhead
 
 Our testing has shown that the performance overhead in terms of processing is minimal, adding less than 0.5 % to the CPU usage of your application.
