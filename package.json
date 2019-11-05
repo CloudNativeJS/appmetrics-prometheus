@@ -1,7 +1,7 @@
 {
   "name": "appmetrics-prometheus",
   "version": "3.0.1",
-  "description": "Provides a Prometheus (/metrics) endpoint for Application Metrics",
+  "description": "Hosts Prometheus-style metrics on a /metrics/codewind endpoint",
   "main": "index.js",
   "dependencies": {
     "appmetrics": "^5.0.0",
@@ -11,7 +11,7 @@
   "devDependencies": {
     "codecov": "^3.6.1",
     "compression": "^1.6.2",
-    "cors": "^2.8.1",
+    "cors": "^2.8.5",
     "eslint": "^4.18.2",
     "eslint-config-strongloop": "^2.1.0",
     "helmet": "^3.4.0",
