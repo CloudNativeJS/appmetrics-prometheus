@@ -54,7 +54,7 @@ tap.test('loopack api available', function(t) {
 
 tap.test('metrics available', function(t) {
   const options = {
-    url: base + '/metrics',
+    url: base + '/metrics/codewind',
   };
   request(options, function(err, resp, body) {
     t.ifError(err);

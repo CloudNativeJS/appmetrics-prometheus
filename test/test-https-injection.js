@@ -61,7 +61,7 @@ tap.test('start', function(t) {
 
 tap.test('metrics available', function(t) {
   const req = {
-    url: base + '/metrics',
+    url: base + '/metrics/codewind',
     rejectUnauthorized: false,
   };
   debug('request %j', req);

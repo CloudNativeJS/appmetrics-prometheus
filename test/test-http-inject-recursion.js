@@ -57,7 +57,7 @@ tap.test('start', function(t) {
 
 tap.test('metrics available', function(t) {
   const options = {
-    url: base + '/metrics',
+    url: base + '/metrics/codewind',
   };
   debug('request %j', options);
   request(options, function(err, resp, body) {
