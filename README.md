@@ -107,6 +107,11 @@ or to use preloading:
 $ node --require appmetrics-prometheus/attach app.js
 ```
 
+or to explicitly attach the express endpoint:
+```
+app.use('/metrics', require('appmetrics-prometheus').endpoint());
+```
+
 ## prometheus = require('appmetrics-prometheus').attach()
 
 This will launch the prometheus endpoint and start monitoring your application.
@@ -171,6 +176,39 @@ server.listen(port, (err) => {
   console.log(`Server is listening on ${port}`)
 });
 ```
+
+## prometheus.endpoint(options)
+
+Returns an endpoint that can be used as express middleware. Options are the same
+as for `prometheus.attach(options)`.
+
+```js
+// This application uses express as its web server
+// for more info, see: http://expressjs.com
+var express = require('express');
+
+// cfenv provides access to your Cloud Foundry environment
+// for more info, see: https://www.npmjs.com/package/cfenv
+var cfenv = require('cfenv');
+
+// create a new express server
+var app = express();
+
+app.use('/metrics', require('appmetrics-prometheus').endpoint());
+
+// serve the files out of ./public as our main files
+app.use(express.static(__dirname + '/public'));
+
+// get the app environment from Cloud Foundry
+var appEnv = cfenv.getAppEnv();
+
+// start server on the specified port and binding host
+app.listen(appEnv.port, '0.0.0.0', function() {
+  // print a message when the server starts listening
+  console.log('server starting on ' + appEnv.url);
+});
+```
+
 
 ## Performance overhead
 
