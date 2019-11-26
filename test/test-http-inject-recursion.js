@@ -21,23 +21,16 @@ const request = require('request');
 const tap = require('tap');
 const util = require('util');
 
+const config = require('./config');
+
+const createHttpServer = require('./apps/createHttpServer');
+
 // Setup appmetrics and start app somewhat as a supervisor would.
 const appmetrics = require('appmetrics');
 appmetrics.start();
 require('../').attach({appmetrics: appmetrics});
 
-// Simple http app that triggered .use() recursion
-const server = require('http').createServer();
-
-server.listen(0, 'localhost', function() {
-  const a = this.address();
-  console.log('listening on %s:%s', a.address, a.port);
-});
-
-server.on('request', function(req, res) {
-  res.write('This is the app!');
-  res.end();
-});
+const server = createHttpServer();
 
 let base;
 
@@ -62,7 +55,9 @@ tap.test('metrics available', function(t) {
   debug('request %j', options);
   request(options, function(err, resp, body) {
     t.ifError(err);
-    t.similar(body, /os_cpu_used_ratio/);
+    config.expectedMetrics.forEach(metricName => {
+      t.similar(body, metricName);
+    });
     t.end();
   });
 });
