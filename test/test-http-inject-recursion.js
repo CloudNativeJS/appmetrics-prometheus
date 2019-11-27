@@ -21,6 +21,7 @@ const request = require('request');
 const tap = require('tap');
 const util = require('util');
 
+const config = require('./config');
 // Setup appmetrics and start app somewhat as a supervisor would.
 const appmetrics = require('appmetrics');
 appmetrics.start();
@@ -62,7 +63,9 @@ tap.test('metrics available', function(t) {
   debug('request %j', options);
   request(options, function(err, resp, body) {
     t.ifError(err);
-    t.similar(body, /os_cpu_used_ratio/);
+    config.expectedMetrics.forEach(metricName => {
+      t.similar(body, metricName);
+    });
     t.end();
   });
 });

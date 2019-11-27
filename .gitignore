@@ -3,3 +3,4 @@ node-report*
 node_modules
 package-lock.json
 resourceRegistry.log
+coverage
