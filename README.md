@@ -1,17 +1,4 @@
-# appmetrics-prometheus
-
-<!-- [![Build Status](https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master)](https://travis-ci.org/RuntimeTools/appmetrics-dash)
-[![codebeat badge](https://codebeat.co/badges/52b7334d-70b0-4659-9acb-b080d6413906)](https://codebeat.co/projects/github-com-runtimetools-appmetrics-dash-master)
-[![codecov.io](https://codecov.io/github/RuntimeTools/appmetrics-dash/coverage.svg?branch=master)](https://codecov.io/github/RuntimeTools/appmetrics-dash?branch=master)
-![Apache 2](https://img.shields.io/badge/license-Apache2-blue.svg?style=flat)
-[![Homepage](https://img.shields.io/badge/homepage-Node%20Application%20Metrics-blue.svg)](https://developer.ibm.com/node/monitoring-post-mortem/application-metrics-node-js/) -->
-
-<p align=center>
-<a href='http://CloudNativeJS.io/'><img src='https://img.shields.io/badge/homepage-CloudNativeJS-blue.svg'></a>
-<a href="https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master"><img src="https://travis-ci.org/RuntimeTools/appmetrics-dash.svg?branch=master" alt="Build status"></a>
-<a href='http://github.com/CloudNativeJS/ModuleLTS'><img src='https://img.shields.io/badge/Module%20LTS-Adopted-brightgreen.svg?style=flat' alt='Module LTS Adopted' /></a> 
-<a href='http://ibm.biz/node-support'><img src='https://img.shields.io/badge/Support-IBM%20Frameworks-brightgreen.svg?style=flat' alt='IBM Support' /></a>   
-</p>
+# The `appmetrics-prometheus` module is deprecated.
 
 appmetrics-prometheus provides a /metrics endpoint which is necessary for [Prometheus monitoring](https://prometheus.io/).
 
